@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_player">
+
+    <ImageView
+        android:id="@+id/btReduce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/selector_player"
+        android:padding="10dp"
+        android:src="@drawable/ic_reduce"/>
+
+    <ImageView
+        android:id="@+id/icCover"
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:layout_below="@id/btReduce"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_cover"
+        android:src="@drawable/bg_placeholder_cover"/>
+
+    <TextView
+        android:id="@+id/lblTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icCover"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/oxygen_bold"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/lblArtist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lblTitle"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/oxygen"
+        android:textColor="#AAA"
+        android:textSize="16sp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btPlay"
+        android:layout_below="@id/lblArtist">
+
+        <TextView
+            android:id="@+id/lblCurrentTiming"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="@font/oxygen"
+            android:gravity="center"
+            android:text="0:00"
+            android:textColor="#bfbfc1"/>
+
+        <TextView
+            android:id="@+id/lblDuration"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="@font/oxygen"
+            android:gravity="center"
+            android:text="0:30"
+            android:textColor="#bfbfc1"/>
+
+        <SeekBar
+            android:id="@+id/sbProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/lblDuration"
+            android:layout_toRightOf="@id/lblCurrentTiming"
+            android:max="30000"
+            android:min="0"
+            android:progress="0"
+            android:theme="@style/PlayerSeekbar"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/btPlay"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/selector_player"
+        android:padding="15dp"
+        android:src="@drawable/ic_play"/>
+
+    <ImageView
+        android:id="@+id/btPrevious"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="55dp"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@id/btPlay"
+        android:background="@drawable/selector_player"
+        android:padding="10dp"
+        android:src="@drawable/ic_back"/>
+
+    <ImageView
+        android:id="@+id/btNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/btPlay"
+        android:background="@drawable/selector_player"
+        android:padding="10dp"
+        android:src="@drawable/ic_next"/>
+</RelativeLayout>
