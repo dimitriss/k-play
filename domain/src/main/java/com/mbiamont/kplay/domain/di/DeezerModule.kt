@@ -6,6 +6,11 @@ import com.mbiamont.kplay.domain.utils.DEEZER_ID
 import dagger.Module
 import dagger.Provides
 
+/**
+ * Created by Melvin Biamont
+ *
+ * Dagger2 Module to provides Deezer dependencies
+ */
 @Module
 class DeezerModule {
 

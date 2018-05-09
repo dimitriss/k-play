@@ -9,6 +9,11 @@ import io.reactivex.schedulers.Schedulers
 import java.util.*
 import javax.inject.Inject
 
+/**
+ * Created by Melvin Biamont
+ *
+ * Presenter to manage the tracks view
+ */
 class TracksPresenter @Inject constructor(private val loginUsecase: LoginUsecase, private val trackUsecase: TrackUsecase) {
 
     lateinit var tracksView: TracksView
@@ -18,18 +23,29 @@ class TracksPresenter @Inject constructor(private val loginUsecase: LoginUsecase
 
     var isRequestPending = false
 
+    /**
+     * Handle the onCreate() of the activity
+     */
     fun onCreate() {
         currentIndex = 0
         retrieveTopTracks()
     }
 
+    /**
+     * Handle the onStart() of the activity
+     */
     fun onStart() {
+        //If the user isn't logged, we redirect it to the login view
         if (!loginUsecase.isLogged(tracksView.context)) {
             tracksView.navigateToLogin()
         }
     }
 
+    /**
+     * Load more items from the current search (or top tracks)
+     */
     fun loadMore() {
+        // if a request is pending, we stop the new one
         if (isRequestPending) {
             return
         }
@@ -40,7 +56,11 @@ class TracksPresenter @Inject constructor(private val loginUsecase: LoginUsecase
         }
     }
 
+    /**
+     * Search an artist or an album
+     */
     fun search(query: String) {
+        //if the query is empty, we retrieve the top tracks
         if (query.isEmpty()) {
             lastSearch = ""
             currentIndex = 0
@@ -74,7 +94,10 @@ class TracksPresenter @Inject constructor(private val loginUsecase: LoginUsecase
                            })
     }
 
-    fun retrieveTopTracks() {
+    /**
+     * Retrieve the top tracks
+     */
+    private fun retrieveTopTracks() {
         tracksView.setSubTitle(tracksView.context.getString(R.string.subtitle_top))
 
         trackUsecase.getTopTrack(currentIndex)

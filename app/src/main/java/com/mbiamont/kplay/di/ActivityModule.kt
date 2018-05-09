@@ -6,6 +6,11 @@ import com.mbiamont.kplay.activity.PlayerActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
+/**
+ * Created by Melvin Biamont
+ *
+ * Dagger2 Module to provide Activities dependencies
+ */
 @Module
 abstract class ActivityModule {
 

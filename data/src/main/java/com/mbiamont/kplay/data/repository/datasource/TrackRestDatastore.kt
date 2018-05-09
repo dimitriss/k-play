@@ -5,6 +5,11 @@ import com.mbiamont.kplay.data.rest.TrackService
 import io.reactivex.Single
 import javax.inject.Inject
 
+/**
+ * Created by Melvin Biamont
+ *
+ * Datastore implementation to access Tracks using Rest API
+ */
 class TrackRestDatastore @Inject constructor(private val trackService: TrackService) : TrackDatastore {
 
     override fun getTopTrack(index: Int): Single<TrackList> {

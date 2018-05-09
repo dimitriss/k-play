@@ -16,6 +16,11 @@ import com.mbiamont.kplay.di.GlideApp
 import kotlinx.android.synthetic.main.item_header.view.*
 import kotlinx.android.synthetic.main.item_track.view.*
 
+/**
+ * Created by Melvin Biamont
+ *
+ * Reclyclerview adapter to display tracks
+ */
 class TracksAdapter(val context: Context, private val trackClickedListener: OnTrackClickedListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val TYPE_HEADER = 0
@@ -26,6 +31,9 @@ class TracksAdapter(val context: Context, private val trackClickedListener: OnTr
     var subtitle = ""
     var allLoaded = false
 
+    /**
+     * Reset the track list and add the new given ones
+     */
     fun resetTracks(tracks: List<Track>) {
         trackList.clear()
         trackList.addAll(tracks)
@@ -33,6 +41,9 @@ class TracksAdapter(val context: Context, private val trackClickedListener: OnTr
         notifyDataSetChanged()
     }
 
+    /**
+     * Add given new tracks to the current list
+     */
     fun addNewTracks(tracks: List<Track>) {
         allLoaded = tracks.isEmpty()
         trackList.addAll(tracks)
@@ -71,6 +82,7 @@ class TracksAdapter(val context: Context, private val trackClickedListener: OnTr
     }
 
     override fun getItemCount(): Int {
+        // We add 1 item for the header, and 1 item for the footer (loader) if all data aren't loaded yet
         return trackList.size + 1 + if (!allLoaded) 1 else 0
     }
 
@@ -83,17 +95,27 @@ class TracksAdapter(val context: Context, private val trackClickedListener: OnTr
     }
 }
 
+/**
+ * Viewholder for the header
+ */
 class HeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     var lblSubtitle: TextView = itemView.lblSubtitle
 
+    /**
+     * Change the subtitle (TOP100 or search value)
+     */
     fun bind(subtitle: String) {
         lblSubtitle.text = subtitle
     }
 }
 
+/** Viewholder for the footer (loader) */
 class FooterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
+/**
+ * Viewholder for the track
+ */
 class TrackViewHolder(private val tracksAdapter: TracksAdapter, itemView: View, private val trackClickedListener: OnTrackClickedListener) : RecyclerView.ViewHolder(
         itemView) {
 
@@ -101,6 +123,9 @@ class TrackViewHolder(private val tracksAdapter: TracksAdapter, itemView: View, 
     var lblArtist: TextView = itemView.lblArtist
     var icCover: ImageView = itemView.icCover
 
+    /**
+     * Update view values
+     */
     fun bind(track: Track, context: Context, position: Int) {
         lblTitle.text = track.title
         lblArtist.text = track.artist.name
@@ -118,7 +143,14 @@ class TrackViewHolder(private val tracksAdapter: TracksAdapter, itemView: View, 
     }
 }
 
+/**
+ * Listener to be awared when the user click on a track
+ */
 interface OnTrackClickedListener {
 
+    /**
+     * Function called when the user click on a track item.
+     * We return the whole track list and the position of the item clicked in the track list.
+     */
     fun onTrackClicked(trackList: List<Track>, position: Int)
 }

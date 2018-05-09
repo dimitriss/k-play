@@ -10,6 +10,11 @@ import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
+/**
+ * Created by Melvin Biamont
+ *
+ * Dagger2 Component to inject modules
+ */
 @Singleton
 @Component(modules = [DeezerModule::class,
     ActivityModule::class,

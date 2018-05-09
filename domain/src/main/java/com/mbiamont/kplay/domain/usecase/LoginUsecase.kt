@@ -11,28 +11,40 @@ import io.reactivex.Maybe
 import java.lang.Exception
 import javax.inject.Inject
 
+/**
+ * Created by Melvin Biamont
+ *
+ * Usecase to connect the user to its Deezer account
+ */
 class LoginUsecase @Inject constructor(var deezerConnect: DeezerConnect) {
 
+    /**
+     * Returns true if the user is already logged to its Deezer account
+     */
     fun isLogged(context: Context): Boolean {
         return SessionStore().restore(deezerConnect, context)
     }
 
+    /**
+     * Display the Deezer login popup and manage its return state
+     */
     fun login(activity: Activity): Maybe<Unit> {
         return Maybe.create({ subscriber ->
-            deezerConnect.authorize(activity, arrayOf(Permissions.BASIC_ACCESS),
-                                    object : DialogListener {
+                                deezerConnect.authorize(activity, arrayOf(Permissions.BASIC_ACCESS),
+                                                        object : DialogListener {
 
-                                        override fun onComplete(p0: Bundle?) {
-                                            SessionStore().save(deezerConnect, activity)
-                                            return subscriber.onSuccess(Unit)
-                                        }
+                                                            override fun onComplete(p0: Bundle?) {
+                                                                SessionStore().save(deezerConnect,
+                                                                                    activity)
+                                                                return subscriber.onSuccess(Unit)
+                                                            }
 
-                                        override fun onCancel() = subscriber.onComplete()
+                                                            override fun onCancel() = subscriber.onComplete()
 
-                                        override fun onException(p0: Exception?) = subscriber.onError(
-                                                p0!!)
+                                                            override fun onException(p0: Exception?) = subscriber.onError(
+                                                                    p0!!)
 
-                                    })
-        })
+                                                        })
+                            })
     }
 }

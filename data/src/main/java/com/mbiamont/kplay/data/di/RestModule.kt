@@ -10,6 +10,10 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+/**
+ * Created by Melvin Biamont
+ * Dagger2 Module to provides Rest dependencies
+ */
 @Module
 class RestModule {
 

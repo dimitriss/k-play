@@ -4,6 +4,9 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
+/**
+ * Deezer model to represent a track
+ */
 class Track(val id: Long = 0,
             val title: String = "",
             @SerializedName("title_short") val titleShort: String = "",

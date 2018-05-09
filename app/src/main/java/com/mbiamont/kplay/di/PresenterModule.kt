@@ -10,7 +10,11 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-
+/**
+ * Created by Melvin Biamont
+ *
+ * Dagger2 Module to provide the Presenters
+ */
 @Module
 class PresenterModule {
 

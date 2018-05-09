@@ -4,7 +4,9 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
-
+/**
+ * Deezer model to represent an artist
+ */
 class Artist(val id: Int = 0,
              val name: String = "",
              val link: String = "",

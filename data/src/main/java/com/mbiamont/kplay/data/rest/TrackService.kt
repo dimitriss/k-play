@@ -5,7 +5,11 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-
+/**
+ * Created by Melvin Biamont
+ *
+ * Retrofit2 service to access Deezer API
+ */
 interface TrackService {
     companion object {
         const val BASE_URL = "https://api.deezer.com"

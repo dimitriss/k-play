@@ -22,3 +22,10 @@ This project is developped in Kotlin, and uses [the CLEAN architecture.](https:/
 * Retrofit2
 * Glide
 * [Deezer SDK](https://developers.deezer.com/sdk/android)
+
+# Modules
+
+
+* `data/` : contains the code to access to the data (repository pattern)
+* `domain/` : contains the business logic and the usecases
+* `app` : Presentation layer, contains the UI 

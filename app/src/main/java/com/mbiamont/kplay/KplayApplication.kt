@@ -9,7 +9,11 @@ import dagger.android.HasActivityInjector
 import timber.log.Timber
 import javax.inject.Inject
 
-
+/**
+ * Created by Melvin Biamont
+ *
+ * K-Play application implementation
+ */
 class KplayApplication : Application(), HasActivityInjector {
 
     @Inject

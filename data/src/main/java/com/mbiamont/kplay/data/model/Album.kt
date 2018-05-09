@@ -4,6 +4,9 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
+/**
+ * Deezer model to represent an album
+ */
 class Album(val id: Long = 0,
                  val title: String = "",
                  val cover: String = "",

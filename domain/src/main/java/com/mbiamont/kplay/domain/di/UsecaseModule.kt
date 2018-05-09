@@ -8,6 +8,11 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
+/**
+ * Created by Melvin Biamont
+ *
+ * Dagger2 Module to provides Usecases dependencies
+ */
 @Module
 class UsecaseModule {
 

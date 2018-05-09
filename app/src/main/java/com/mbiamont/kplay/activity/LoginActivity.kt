@@ -11,7 +11,13 @@ import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
+/**
+ * Created by Melvin Biamont
+ *
+ * Activity to allow user to login
+ */
 class LoginActivity : AppCompatActivity(), LoginView {
+
     override var activity: Activity = this
 
     @Inject
@@ -31,6 +37,9 @@ class LoginActivity : AppCompatActivity(), LoginView {
         loginPresenter.onStart()
     }
 
+    /**
+     * Setup the view
+     */
     private fun initView() {
         btLogin.setOnClickListener { loginPresenter.login() }
     }

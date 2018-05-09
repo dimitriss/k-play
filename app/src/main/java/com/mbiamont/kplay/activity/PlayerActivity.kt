@@ -14,10 +14,22 @@ import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_player.*
 import javax.inject.Inject
 
+/**
+ * Created by Melvin Biamont
+ *
+ * Activity to play playlist
+ */
 class PlayerActivity : FullscreenActivity(), PlayerView {
 
     companion object {
+        /**
+         * Extra key to exchange the playlist which must be played
+         */
         const val EXTRA_PLAYLIST = "com.mbiamont.kplay.extras.PLAYLIST"
+
+        /**
+         * Extra key to exchange the position of the track to be played in the given playlist
+         */
         const val EXTRA_POSITION = "com.mbiamont.kplay.extras.POSITION"
     }
 
@@ -41,6 +53,9 @@ class PlayerActivity : FullscreenActivity(), PlayerView {
         playerPresenter.onDestroy()
     }
 
+    /**
+     * Setup the view
+     */
     private fun initView() {
         sbProgress.setOnTouchListener({ _, _ -> true })
         btPlay.setOnClickListener({ playerPresenter.togglePlay() })

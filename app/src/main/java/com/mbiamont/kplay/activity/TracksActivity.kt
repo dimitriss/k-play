@@ -25,7 +25,11 @@ import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_tracks.*
 import javax.inject.Inject
 
-
+/**
+ * Created by Melvin Biamont
+ *
+ * Activity to list the tracks by TOP100 or search
+ */
 class TracksActivity : AppCompatActivity(), TracksView, OnTrackClickedListener {
 
     override var context: Context = this
@@ -54,6 +58,9 @@ class TracksActivity : AppCompatActivity(), TracksView, OnTrackClickedListener {
         tracksPresenter.onStart()
     }
 
+    /**
+     * Setup view
+     */
     private fun initView() {
         btSearch.setOnClickListener({ tracksPresenter.search(txtSearch.text.toString()) })
 
@@ -62,6 +69,7 @@ class TracksActivity : AppCompatActivity(), TracksView, OnTrackClickedListener {
                                                       Snackbar.LENGTH_SHORT).show()
                                     })
 
+        //listener when the user press the search key on the keypad
         txtSearch.setOnEditorActionListener(
                 TextView.OnEditorActionListener { _, actionId, _ ->
                     if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE) {
