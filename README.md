@@ -4,7 +4,7 @@ K-Play is a sample Android application using the [Deezer SDK](https://developers
 
 <p>
   <img src="art/screen1.jpg" width="33%">
-  <img src="art/screen2.jpg" width="33%">
+  <img src="art/screencast.gif" width="33%">
   <img src="art/screen3.jpg" width="33%">
 </p>
 
